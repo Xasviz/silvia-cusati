@@ -14,6 +14,7 @@ const metrics = [
   { icon: BarChart3, label: "Engagement Rate", value: "4.8%", color: "bg-accent/10" },
   { icon: Share2, label: "Avg. Shares/Post", value: "12K", color: "bg-primary/10" },
 ];
+// comentario
 
 export default function MediaKitModal({ isOpen, onClose }: MediaKitModalProps) {
   return (
