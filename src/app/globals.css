@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 203, 238, 243; /* #cbeef3 */
+}
+
+body {
+  color: oklch(20% 0.05 27.3);
+  background: theme('colors.background');
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .glassmorphism {
+    background: theme('colors.background');
+    border-bottom: 1px solid rgba(136, 13, 30, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+  }
+}
+
+.italic-serif {
+  font-family: var(--font-bodoni);
+  font-style: italic;
+}
