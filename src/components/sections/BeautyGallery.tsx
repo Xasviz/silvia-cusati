@@ -3,19 +3,17 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-// Función para generar un placeholder elegante en SVG (No requiere internet)
-const getPlaceholder = (text: string, id: number) => {
-  const colors = ["#cbeef3", "#d6f1f5", "#e0f4f7", "#eaf8fa"];
-  const bgColor = colors[id % colors.length];
+// Función para generar un fallback elegante (Nude) si la imagen falla
+const getPlaceholder = (text: string) => {
   const svg = `
     <svg width="1000" height="1500" xmlns="http://www.w3.org/2000/svg">
-      <rect width="100%" height="100%" fill="${bgColor}"/>
-      <text x="50%" y="48%" font-family="serif" font-style="italic" font-size="40" fill="#880d1e" text-anchor="middle" dominant-baseline="middle">Silvia Cusati</text>
-      <text x="50%" y="54%" font-family="sans-serif" font-size="12" fill="#880d1e" text-anchor="middle" dominant-baseline="middle" letter-spacing="5" font-weight="bold">${text.toUpperCase()}</text>
-      <line x1="45%" y1="51%" x2="55%" y2="51%" stroke="#880d1e" stroke-width="1" opacity="0.3" />
+      <rect width="100%" height="100%" fill="#f4978e"/>
+      <text x="50%" y="48%" font-family="serif" font-style="italic" font-size="42" fill="#880d1e" text-anchor="middle" dominant-baseline="middle">Silvia Cusati</text>
+      <line x1="44%" y1="51%" x2="56%" y2="51%" stroke="#880d1e" stroke-width="1.5" />
+      <text x="50%" y="54%" font-family="sans-serif" font-size="14" fill="#880d1e" text-anchor="middle" dominant-baseline="middle" letter-spacing="8" font-weight="bold">${text.toUpperCase()}</text>
     </svg>
   `;
-  return `data:image/svg+xml;base64,${btoa(svg)}`;
+  return `data:image/svg+xml;base64,${btoa(unescape(encodeURIComponent(svg)))}`;
 };
 
 const galleryItems = [
@@ -127,21 +125,21 @@ export default function BeautyGallery() {
                 src={item.image}
                 alt={item.title}
                 loading="lazy"
-                className="w-full h-full object-cover grayscale-[0.85] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+                className="w-full h-full object-cover grayscale-[0.85] group-hover:grayscale-0 scale-100 group-hover:scale-105 transition-all duration-700 ease-in-out"
                 onError={(e) => {
-                  e.currentTarget.src = getPlaceholder(item.category, item.id);
+                  e.currentTarget.src = getPlaceholder(item.category);
                 }}
               />
               
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
-                <span className="text-accent uppercase tracking-[0.3em] text-[10px] font-bold mb-2">{item.category}</span>
-                <h3 className="text-white text-3xl font-serif italic mb-4">{item.title}</h3>
-                <div className="w-12 h-[1px] bg-accent group-hover:w-24 transition-all duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-[#ce4257]/20 to-[#ce4257]/90 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
+                <span className="text-white/80 font-sans uppercase tracking-widest text-[10px] font-bold mb-2">{item.category}</span>
+                <h3 className="text-white text-4xl md:text-5xl font-serif italic mb-4 leading-tight">{item.title}</h3>
+                <div className="w-12 h-[2px] bg-[#ad2831] group-hover:w-24 transition-all duration-500" />
               </div>
 
-              <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="bg-background/90 backdrop-blur-md px-3 py-1 text-[9px] uppercase tracking-widest border border-primary/20 text-primary font-bold">
-                  View Detail
+              <div className="absolute top-4 right-4 z-10">
+                <div className="bg-[#cbeef3] text-[#880d1e] px-4 py-1.5 text-[10px] uppercase tracking-widest font-sans font-bold">
+                  EXPLORE
                 </div>
               </div>
             </motion.div>
