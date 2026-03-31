@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Users, TrendingUp, BarChart3, Share2 } from "lucide-react";
 
@@ -17,6 +18,17 @@ const metrics = [
 // comentario
 
 export default function MediaKitModal({ isOpen, onClose }: MediaKitModalProps) {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -35,7 +47,13 @@ export default function MediaKitModal({ isOpen, onClose }: MediaKitModalProps) {
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="fixed inset-4 md:inset-10 lg:inset-20 bg-background z-[101] overflow-y-auto shadow-2xl border-4 border-primary"
+            className="fixed inset-4 md:inset-10 lg:inset-20 bg-background z-[101] overflow-y-auto overscroll-contain shadow-2xl border-4 border-primary
+                       [&::-webkit-scrollbar]:w-[5px]
+                       [&::-webkit-scrollbar-track]:bg-[#f4978e]/10
+                       [&::-webkit-scrollbar-thumb]:bg-[#880d1e]
+                       [&::-webkit-scrollbar-thumb]:rounded-full
+                       [scrollbar-width:thin]
+                       [scrollbar-color:#880d1e_rgba(244,151,142,0.1)]"
           >
             <div className="sticky top-0 right-0 p-6 flex justify-end z-10 bg-background/80 backdrop-blur-md">
               <button onClick={onClose} className="p-2 hover:bg-primary/10 transition-colors rounded-full">
