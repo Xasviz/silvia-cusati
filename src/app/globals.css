@@ -3,13 +3,17 @@
 @tailwind utilities;
 
 :root {
+  --background: #e5f3f4;
+  --nude: #f4978e;
+  --wine: #880d1e;
+  --raspberry: #ce4257;
+  --red: #ad2831;
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 203, 238, 243; /* #cbeef3 */
 }
 
 body {
-  color: oklch(20% 0.05 27.3);
-  background: theme('colors.background');
+  color: var(--wine);
+  background: var(--background);
   overflow-x: hidden;
 }
 

@@ -49,12 +49,12 @@ export default function HeroSection({ onOpenMediaKit }: { onOpenMediaKit: () => 
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="relative aspect-[3/4] md:aspect-square lg:aspect-[4/5] overflow-hidden shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000 group"
+          className="relative aspect-[3/4] md:aspect-square lg:aspect-[4/5] overflow-hidden shadow-2xl transition-all duration-1000 group"
         >
            {/* Placeholder for high-res image */}
            <div className="absolute inset-0 bg-secondary/10" />
            <img 
-            src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=2087&auto=format&fit=crop"
+            src="/via-cusati.jpeg"
             alt="Editorial Makeup Artistry"
             className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[2000ms]"
            />

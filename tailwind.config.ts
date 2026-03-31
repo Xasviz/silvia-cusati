@@ -9,10 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "oklch(95.4% 0.015 200)", // #cbeef3 approx in oklch
-        primary: "oklch(35.5% 0.142 27.3)",   // #880d1e
-        secondary: "oklch(71.4% 0.175 4.5)", // #f26a8d
-        accent: "oklch(53.2% 0.231 22.5)",    // #dd2d4a
+        background: "var(--background)",
+        nude: "var(--nude)",
+        wine: "var(--wine)",
+        raspberry: "var(--raspberry)",
+        red: "var(--red)",
+        // Map old names to maintain layout
+        primary: "var(--wine)",
+        secondary: "var(--nude)",
+        accent: "var(--red)",
       },
       fontFamily: {
         serif: ["var(--font-bodoni)", "serif"],
