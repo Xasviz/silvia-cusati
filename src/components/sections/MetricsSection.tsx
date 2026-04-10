@@ -49,12 +49,12 @@ export default function MetricsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white/50 backdrop-blur-sm p-8 rounded-2xl shadow-sm border border-wine/5 hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center"
+              className="bg-nude/10 backdrop-blur-sm p-8 rounded-2xl shadow-sm border border-wine/10 hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center"
             >
-              <div className="p-3 bg-nude/10 rounded-xl mb-6">
+              <div className="p-3 bg-nude/20 rounded-xl mb-6">
                 <metric.icon className="w-8 h-8 text-raspberry" />
               </div>
-              <h3 className="text-wine/60 text-xs tracking-[0.2em] font-bold mb-2 uppercase">
+              <h3 className="text-wine text-xs tracking-[0.2em] font-bold mb-2 uppercase">
                 {metric.title}
               </h3>
               <div className="text-4xl font-bold text-red mb-2">
