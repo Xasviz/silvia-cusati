@@ -4,6 +4,7 @@ import { useState } from "react";
 import Navbar from "@/components/layout/Navbar";
 import HeroSection from "@/components/sections/HeroSection";
 import MediaKitModal from "@/components/modals/MediaKitModal";
+import MetricsSection from "@/components/sections/MetricsSection";
 import BeautyGallery from "@/components/sections/BeautyGallery";
 import BrandSlider from "@/components/sections/BrandSlider";
 import ContactForm from "@/components/sections/ContactForm";
@@ -31,6 +32,7 @@ export default function Home() {
       <HeroSection onOpenMediaKit={() => setIsMediaKitOpen(true)} />
       
       <div className="bg-background">
+        <MetricsSection />
         <BrandSlider />
         <BeautyGallery />
         <ContactForm />
@@ -45,7 +47,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           <div>
             <h4 className="font-serif text-2xl tracking-widest font-bold">SILVIA CUSATI</h4>
-            <p className="text-white/40 uppercase tracking-widest text-[10px] mt-2">© 2026 Silvia Cusati's Team. All Rights Reserved.</p>
+            <p className="text-white/40 uppercase tracking-widest text-[10px] mt-2">© 2026 Silvia Cusati&apos;s Team. All Rights Reserved.</p>
           </div>
           <div className="flex gap-12 text-sm uppercase tracking-[0.2em] font-bold">
             <a href="#" className="hover:text-accent transition-colors">Instagram</a>
